@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수능 D-Day 카운터</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-white text-gray-800 font-sans min-h-screen flex flex-col items-center p-4">
+  <!-- 상단 제목 -->
+  <header class="mt-10 text-center">
+    <h1 class="text-3xl font-bold mb-2">📅 수능까지 얼마나 남았지?</h1>
+    <p class="text-sm text-gray-500">2025년 수능은 11월 13일 (목요일)입니다</p>
+  </header>
+
+  <!-- D-Day 표시 -->
+  <main class="flex-1 flex flex-col justify-center items-center">
+    <div id="dday" class="text-7xl font-extrabold text-blue-600 my-10">D-000</div>
+    
+    <!-- 광고 자리 1 (중앙) -->
+    <div class="w-full max-w-md h-24 bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 mb-8">
+      [ 여기에 광고가 들어갈 자리입니다 ]
+    </div>
+
+    <!-- 공부 팁 -->
+    <div class="text-center text-sm text-gray-600">
+      💡 <span id="tip">오늘은 국어 문학 한 세트를 풀어보는 건 어때요?</span>
+    </div>
+  </main>
+
+  <!-- 광고 자리 2 (하단) -->
+  <footer class="w-full max-w-md h-20 mt-10 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">
+    [ 하단 광고 영역 ]
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const suneungDate = new Date('2025-11-13');
+    const today = new Date();
+    const diff = Math.ceil((suneungDate - today) / (1000 * 60 * 60 * 24));
+    document.getElementById('dday').textContent = `D-${diff}`;
+
+    // 랜덤 공부 팁 표시
+    const tips = [
+      "오늘은 국어 문학 한 세트를 풀어보는 건 어때요?",
+      "EBS 연계 교재 오늘 1과만이라도!",
+      "단어 외우기 30개만 하고 쉬자!",
+      "기출문제 분석하는 날로 정해볼까?",
+      "오늘 공부 계획을 한 줄로 적어보자."
+    ];
+    document.getElementById('tip').textContent = tips[Math.floor(Math.random() * tips.length)];
+  </script>
+</body>
+</html>
